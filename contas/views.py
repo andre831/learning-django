@@ -1,8 +1,9 @@
 from django.shortcuts import render
+from .models import Transacao
 import datetime
 
-from django.utils.timezone import now
-
 def home(request):
-   now = datetime.datetime.now()
-   return render(request, 'templates/home.html')
+   data = {}
+   data['transacoes'] = Transacao.objects.all()
+
+   return render(request, 'templates/home.html', data)
