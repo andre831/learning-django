@@ -10,7 +10,7 @@ def home(request):
 
    return render(request, 'templates/home.html', data)
 
-def add_nova_transacao(request):
+def add_new_transacao(request):
    form = TransacaoForm(request.POST or None)
 
    data = {}
@@ -20,4 +20,18 @@ def add_nova_transacao(request):
       form.save()
       return redirect('home')
 
-   return render(request, 'templates/form.html', data)
+   return render(request, 'templates/new.html', data)
+
+def update_transacao(request, pk ):
+   transacao = Transacao.objects.get(pk = pk)
+   
+   form = TransacaoForm(request.POST or None, instance =  transacao)
+
+   data = {}
+   data['form'] = form
+
+   if form.is_valid():
+      form.save()
+      return redirect('home')
+
+   return render(request, 'templates/new.html', data)
