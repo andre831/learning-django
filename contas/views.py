@@ -15,7 +15,7 @@ def add_new_transacao(request):
 
    data = {}
    data['form'] = form
-
+   
    if form.is_valid():
       form.save()
       return redirect('home')
@@ -29,9 +29,16 @@ def update_transacao(request, pk ):
 
    data = {}
    data['form'] = form
-
+   data['transacao'] = transacao
+   
    if form.is_valid():
       form.save()
       return redirect('home')
 
    return render(request, 'templates/new.html', data)
+
+def delete_transacao(request, pk):
+
+   transacao = Transacao.objects.get(pk = pk)
+   transacao.delete()
+   return redirect('home')
