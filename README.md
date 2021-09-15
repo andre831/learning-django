@@ -6,24 +6,24 @@ This development was focused on to  structuring CRUD in Python, between Django, 
 
 ## How to use 
 
-1. Install the python:  
+1. Install the python:
+` sudo apt-get install python3 `  
 
-` sudo apt-get install python3 `
-2. If you not have the pip in your machine, use:   
+2. If you not have the pip in your machine, use:
+` sudo apt-get install python3-pip `  
 
-` sudo apt-get install python3-pip `
-3. Create a Virtual Environment:  
+3. Create a Virtual Environment:
+` python3 -m venv venv`  
 
-` python3 -m venv venv`
 4. Active your venv:  
+` source venv/bin/activate `  
 
-` source venv/bin/activate `
 5. Install Django:  
+` pip install django `  
 
-` pip install django `
 6. Initialize the project:  
+` python manage.py runserver `  
 
-` python manage.py runserver `
 
 Windows install case:
 ` https://python.org.br/instalacao-windows/ `  
